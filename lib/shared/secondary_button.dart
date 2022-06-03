@@ -19,20 +19,23 @@ class SecondaryButton extends StatelessWidget {
     return ButtonTheme(
       minWidth: minWidth,
       height: 45,
-      child:   OutlineButton(
+      child:   ElevatedButton(
         child: Text( text,
           style: const TextStyle(
-            color: Colors.black,
+            color: Keys.primaryColor,
             fontSize: 16,
           ),
         ),
-        borderSide: BorderSide(
-          color: Colors.blueGrey,
-          style: BorderStyle.solid,
-          width: 1.8,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          side: MaterialStateProperty.all(
+              BorderSide(
+                color: Keys.primaryColor,
+                style: BorderStyle.solid,
+                width: 1.8,
+              )
+          ),
         ),
-        hoverColor: Colors.blueGrey,
-        highlightedBorderColor:Colors.blueGrey,
         onPressed: () async {
           if(checkConnectivity){
             if(Internet.isConnected()){
